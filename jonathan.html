@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produção Integrada</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .logo {
+            max-height: 50px;
+        }
+
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 10;
+            left: 20;
+            width: 200px;
+            padding-top: 20px;
+        }
+
+        .main {
+            margin-left: 200px;
+            padding: 20px;
+        }
+
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 400px;
+            width: 100%;
+        }
+
+        .footer {
+            background-color: #dedee6;
+            text-align: center;
+        }
+
+        /* Estilos adicionados para alinhar os cards lado a lado */
+        .cards {
+            width: 100%;
+            padding: 55px 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 150px;
+            }
+
+    .cards .card {
+        padding: 40px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    }
+
+        .card-content {
+            text-align: center;
+        }
+
+        .icon-box {
+            margin-top: 10px;
+        }
+    .sidebar{
+        color: red;
+    }
+     * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ece4e4;
+            color: #0c0c0c;
+        }
+
+        /* Header */
+        header {
+            background-color: #0c0c0c;
+            color: #131212;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Navbar */
+        .navbar-vertical {
+            position: fixed;
+            left: 0;
+            top: 72px;
+            bottom: 0;
+            width: 200px;
+            background-color: hsl(210, 81%, 34%);
+            padding-top: 20px;
+        }
+
+        .navbar-vertical .nav-link {
+            color: rgba(8, 8, 8, 0.7);
+            padding: 10px 20px;
+        }
+
+        .navbar-vertical .nav-link.active {
+            color: #131111;
+            background-color: #e7e7f3;
+        }
+
+        /* Aside */
+        aside {
+            position: fixed;
+            right: 0;
+            top: 72px;
+            bottom: 0;
+            width: 300px;
+            background-color: #14487c;
+            padding: 20px;
+            color: #e6d6d6;
+            overflow-y: auto;
+        }
+
+        /* Article */
+        article {
+            margin: 72px auto; /* centralizar o conteúdo */
+            padding: 20px;
+            background-color: #c0dbf7; /* cor de fundo do conteúdo */
+            border-radius: 10px; /* bordas arredondadas */
+            box-shadow: 0 0 10px rgb(14, 11, 11); /* sombra suave */
+            max-width: 800px; /* ajustar a largura máxima do conteúdo */
+        }
+
+        /* Canvas */
+        canvas {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            margin-bottom: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .chart-container .chartjs-text-color {
+            fill: #161515 !important; /* cor do texto dentro dos gráficos */
+        }
+
+        @media screen and (max-width: 768px) { /* Estilos para telas menores que 768px */ 
+        }
+        .h2, h2 {
+            font-size: 2rem;
+            color: #14487c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="d-flex justify-content-between align-items-center p-3 my-3">
+            <h1> </h1>
+        </header>
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Painel principal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="jhow.html">Produção</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+            <div class="main">
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number"></div>
+                            <div class="card-name">Poze.Pz</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number"></div>
+                            <div class="card-name">Vagner.P</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number"></div>
+                            <div class="card-name">Jonathan.A</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number"></div>
+                            <div class="card-name">Neymar.Jr</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts"></div>
+
+            </div>
+        </div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <h2>Painel Principal</h2>
+            <div class="chart-container">
+                <canvas id="productionLineChart"></canvas>
+                <h2> Painel de Eficiência</h2>
+            </div>
+            <div class="chart-container mt-4">
+                <canvas id="efficiencyBarChart"></canvas>
+            </div>
+            <h3 class="mt-5">Estoque de Matéria-Prima</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome do Material</th>
+                        <th>Quantidade em Estoque</th>
+                        <th>Quantidade Necessária</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="stockTableBody">
+                    <!-- Conteúdo será adicionado via JavaScript -->
+                </tbody>
+            </table>
+            <h3 class="mt-5">Status de Produção Atual</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Quantidade Produzida</th>
+                        <th>Meta de Produção</th>
+                        <th>Percentual da Meta Atingida</th>
+                    </tr>
+                </thead>
+                <tbody id="productionTableBody">
+                    <!-- Conteúdo será adicionado via JavaScript -->
+                </tbody>
+            </table>
+        </main>
+        <footer class="footer mt-auto py-3">
+            <div class="container">
+            <p> Criador:Jonathan amaral da silva</p>
+            <p> Fone:(19) 993766517</p>
+            <p> E-mail: Jonathanresendeamaral@gmail.com</p>
+                <span class="text-muted">© 2024 Sua Empresa. Todos os direitos reservados.</span>
+                
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gráfico Diário de Linhas de Produção
+            var ctxLine = document.getElementById('productionLineChart').getContext('2d');
+            var productionLineChart = new Chart(ctxLine, {
+                type: 'line',
+                data: {
+                    labels: ['Dia 1', 'Dia 2', 'Dia 3', 'Dia 4', 'Dia 5', 'Dia 6', 'Dia 7', 'Dia 8', 'Dia 9', 'Dia 10', 'Dia 11', 'Dia 12', 'Dia 13', 'Dia 14', 'Dia 15', 'Dia 16', 'Dia 17', 'Dia 18', 'Dia 19', 'Dia 20', 'Dia 21', 'Dia 22', 'Dia 23', 'Dia 24', 'Dia 25', 'Dia 26', 'Dia 27', 'Dia 28', 'Dia 29', 'Dia 30'],
+                    datasets: [
+                        {
+                            label: 'Produto A',
+                            data: [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 310, 320],
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            fill: false
+                        },
+                        // Adicione mais datasets para outros produtos
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Produção Diária'
+                    },
+                    scales: {
+                        x: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: 'Dias do Mês'
+                            }
+                        },
+                        y: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: 'Quantidade Produzida'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Gráfico de Barras de Comparação de Eficiência
+            var ctxBar = document.getElementById('efficiencyBarChart').getContext('2d');
+            var efficiencyBarChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: ['Linha 1', 'Linha 2', 'Linha 3', 'Máquina 1', 'Máquina 2'],
+                    datasets: [
+                        {
+                            label: 'Eficiência (%)',
+                            data: [85, 90, 78, 92, 88],
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Comparação de Eficiência'
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Eficiência (%)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Tabela de Estoque de Matéria-Prima
+            var rawData = [
+                { material: 'Aço', quantity: 100, required: 150, status: 'Suficiente' },
+                { material: 'Plástico', quantity: 50, required: 75, status: 'Baixo' },
+                // Adicione mais dados conforme necessário
+            ];
+
+            var stockTableBody = document.getElementById('stockTableBody');
+            rawData.forEach(function(item) {
+                var row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.material}</td>
+                    <td>${item.quantity}</td>
+                    <td>${item.required}</td>
+                    <td>${item.status}</td>
+                `;
+                stockTableBody.appendChild(row);
+            });
+
+            // Tabela de Status de Produção Atual
+            var productionData = [
+                { produced: 1000, goal: 1200, percentage: '83%' },
+                { produced: 850, goal: 1000, percentage: '85%' },
+                // Adicione mais dados conforme necessário
+            ];
+
+            var productionTableBody = document.getElementById('productionTableBody');
+            productionData.forEach(function(item) {
+                var row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.produced}</td>
+                    <td>${item.goal}</td>
+                    <td>${item.percentage}</td>
+                `;
+                productionTableBody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>
